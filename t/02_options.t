@@ -12,6 +12,7 @@ my %option = (
     'hansp'            => 0, # 半角スペースをチェックする
     'hanpar'           => 0, # 半角カッコをチェックする
     'zensp'            => 0, # 全角スペースをチェックする
+    'zentilde'         => 0, # 全角チルダをチェックする
     '78hosetsu_tekiyo' => 0, # 78互換包摂の対象となる不要な外字注記をチェックする
     'hosetsu_tekiyo'   => 0, # 包摂の対象となる不要な外字注記をチェックする
     '78'               => 0, # 78互換包摂29字をチェックする
@@ -84,6 +85,20 @@ subtest 'zensp' => sub {
 
     my $checker2 = AozoraBunko::Checkerkun->new(\%opts);
     is($checker2->check($text), '太宰　[zensp]治' x 2);
+};
+
+subtest 'zentilde' => sub {
+    my %opts = %option;
+
+    my $text = '二次元～三次元' x 2;
+
+    my $checker1 = AozoraBunko::Checkerkun->new(\%opts);
+    is($checker1->check($text), $text);
+
+    $opts{'zentilde'} = 1;
+
+    my $checker2 = AozoraBunko::Checkerkun->new(\%opts);
+    is($checker2->check($text), '二次元～[zentilde]三次元' x 2);
 };
 
 subtest '78hosetsu_tekiyo' => sub {

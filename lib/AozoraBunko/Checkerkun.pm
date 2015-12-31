@@ -56,6 +56,7 @@ sub _default_options
         'hansp'            => 1, # 半角スペースをチェックする
         'hanpar'           => 1, # 半角カッコをチェックする
         'zensp'            => 0, # 全角スペースをチェックする
+        'zentilde'         => 1, # 全角チルダをチェックする
         '78hosetsu_tekiyo' => 1, # 78互換包摂の対象となる不要な外字注記をチェックする
         'hosetsu_tekiyo'   => 1, # 包摂の対象となる不要な外字注記をチェックする
         '78'               => 0, # 78互換包摂29字をチェックする
@@ -243,6 +244,17 @@ sub check
                 $checked_text .= _tag_html($char, 'zensp', '全角スペース');
             }
         }
+        elsif ($self->{'zentilde'} && $char eq "\x{FF5E}")
+        {
+            if ($output_format eq 'plaintext')
+            {
+                $checked_text .= $char . '[zentilde]';
+            }
+            elsif ($output_format eq 'html')
+            {
+                $checked_text .= _tag_html($char, 'zentilde', '全角チルダ');
+            }
+        }
         elsif ( $self->{hanpar} && ($char eq '(' || $char eq ')') )
         {
             if ($output_format eq 'plaintext')
@@ -411,6 +423,7 @@ AozoraBunko::Checkerkun は、青空文庫工作員のための文字チェッ�
       'hansp'            => 1, # 半角スペースをチェックする
       'hanpar'           => 1, # 半角カッコをチェックする
       'zensp'            => 0, # 全角スペースをチェックする
+      'zentilde'         => 1, # 全角チルダをチェックする
       '78hosetsu_tekiyo' => 1, # 78互換包摂の対象となる不要な外字注記をチェックする
       'hosetsu_tekiyo'   => 1, # 包摂の対象となる不要な外字注記をチェックする
       '78'               => 0, # 78互換包摂29字をチェックする
