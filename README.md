@@ -105,6 +105,8 @@ new で指定したオプションでテキストをチェックします。戻�
 
 [外字](http://www.aozora.gr.jp/annotation/external_character.html)
 
+[波ダッシュ - Wikipedia](https://ja.wikipedia.org/wiki/%E6%B3%A2%E3%83%80%E3%83%83%E3%82%B7%E3%83%A5#Unicode.E3.81.AB.E9.96.A2.E9.80.A3.E3.81.99.E3.82.8B.E5.95.8F.E9.A1.8C)
+
 [包摂 (文字コード) - Wikipedia](https://ja.wikipedia.org/wiki/%E5%8C%85%E6%91%82_\(%E6%96%87%E5%AD%97%E3%82%B3%E3%83%BC%E3%83%89\))
 
 [JIS漢字で包摂の扱いが変わる文字（\[78\] \[jyogai\] など）](http://www.aozora.gr.jp/newJIS-Kanji/gokan_henkou_list.html)
