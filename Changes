@@ -2,6 +2,10 @@ Revision history for Perl extension AozoraBunko-Checkerkun
 
 {{$NEXT}}
 
+0.12 2015-12-31T16:08:54Z
+
+    - Added JIS X 0208 tests
+
 0.11 2015-12-31T14:05:13Z
 
     - Improved the performance of _is_gaiji method (about 3.8 times faster)
