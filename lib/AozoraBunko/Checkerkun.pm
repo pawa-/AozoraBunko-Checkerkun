@@ -159,12 +159,10 @@ sub _check_all_hosetsu_tekiyo
 
 sub _is_gaiji
 {
-    my $char = shift; # コピーしないと、encode のタイミングで元の文字が消失してしまう。
+    my $char = shift; # コピーしないと元の文字が消失するので
 
-    # UTF-8からSJISに変換できなければ外字と判定
-    eval { $ENC->encode($char, Encode::FB_CROAK) };
-    return 1 if $@;
-    return 0;
+    # UTF-8からSJISに変換できなければ JIX X 0208:1997 外字と判定
+    return length $ENC->encode($char, Encode::FB_QUIET) ? 0 : 1;
 }
 
 sub check
