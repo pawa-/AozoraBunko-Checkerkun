@@ -2,6 +2,12 @@ Revision history for Perl extension AozoraBunko-Checkerkun
 
 {{$NEXT}}
 
+0.11 2015-12-31T14:05:13Z
+
+    - Improved the performance of _is_gaiji method (about 3.8 times faster)
+    - Added zentilde option
+    - Improved documentation
+
 0.10 2015-12-23T20:24:31Z
 
     - No code changes
